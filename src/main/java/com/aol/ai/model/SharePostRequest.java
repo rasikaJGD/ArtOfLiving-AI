@@ -1,12 +1,13 @@
 package com.aol.ai.model;
 
-import com.aol.ai.model.enums.PostContext;
+import com.aol.ai.model.enums.PostStatus;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
 import lombok.extern.jackson.Jacksonized;
-import java.util.Date;
+
+import java.util.List;
 
 @With()
 @NoArgsConstructor
@@ -17,9 +18,12 @@ import java.util.Date;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Jacksonized
 /*
-This class is used in Post object to capture post meta data.
+This class is to capture the SharePost API request object.
  */
-public class PostMetadata {
-    private Date Timestamp;
-    private PostContext postContext;
+public class SharePostRequest {
+    private List<Post> post;
+    private String toChannel;
+    private UserMetaData userMetaData;
+    private Permissions permissions;
+    private PostStatus postStatus;
 }

@@ -1,7 +1,6 @@
 package com.aol.ai.service;
-import com.aol.ai.model.GetLatesPostsRequest;
+import com.aol.ai.model.*;
 import reactor.core.publisher.Mono;
-import com.aol.ai.model.LatestPostsResponse;
 
 /**
  * this service is responsible to
@@ -12,4 +11,6 @@ import com.aol.ai.model.LatestPostsResponse;
 public interface ArtOfLivingAIService {
 
   Mono<LatestPostsResponse> getLatestFeed(GetLatesPostsRequest getLatesPostsRequest);
+  Mono<SuggestionsPreviewResponse>  getSuggestionsPreview(GetSuggestionsPreviewRequest getSuggestionsPreviewRequest);
+  Mono<SharePostResponse> sharePost(SharePostRequest sharePostRequest);
 }
