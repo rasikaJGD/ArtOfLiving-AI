@@ -6,6 +6,8 @@ import com.aol.ai.model.enums.PostStatus;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,6 +45,17 @@ public class ArtOfLivingServiceImpl implements ArtOfLivingAIService{
         postList.add(post);
         SuggestionsPreviewResponse suggestionsPreviewResponse = SuggestionsPreviewResponse.builder()
                 .posts(postList).build();
+
+        // Save the Generated Post object in Dynamo DB here.
+        GeneratedPosts generatedPosts = GeneratedPosts.builder()
+                .PostId_UserId("123_456")
+                .PostContext_Timestamp(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")))
+                .GeneratedPosts(postList)
+                .UserInput(getSuggestionsPreviewRequest)
+                .build();
+
+        //generatedPostsRepository.save(generatedPosts);
+
         return Mono.just(suggestionsPreviewResponse);
     }
 

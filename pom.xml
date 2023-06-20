@@ -50,11 +50,31 @@
 			<artifactId>aws-serverless-java-container-springboot3</artifactId>
 			<version>2.0.0-M1</version>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>software.amazon.awssdk</groupId>-->
-<!--			<artifactId>lambda</artifactId>-->
-<!--			<version>2.20.84</version>-->
-<!--		</dependency>-->
+		<!-- AWS SDK for Java V2 -->
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>dynamodb</artifactId>
+			<version>2.20.87</version>
+		</dependency>
+
+		<!-- DynamoDB Enhanced Client -->
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>dynamodb-enhanced</artifactId>
+			<version>2.20.87</version>
+		</dependency>
+
+		<!-- Jackson Data Mapper -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-cbor</artifactId>
+			<version>2.12.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.derjust</groupId>
+			<artifactId>spring-data-dynamodb</artifactId>
+			<version>5.1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
